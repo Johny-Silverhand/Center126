@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #1e2640 0%, #0d111d 100%);
+    color: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 15px;
+}
+
+.container {
+    width: 100%;
+    max-width: 430px; /* Сайт центрирован как аккуратное мобильное приложение */
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* Шапка */
+.header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.avatar {
+    width: 85px;
+    height: 85px;
+    background: linear-gradient(135deg, #c5a880 0%, #8a6f48 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: #0d111d;
+    box-shadow: 0 8px 24px rgba(197, 168, 128, 0.2);
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #9ca3af;
+    max-width: 300px;
+    line-height: 1.4;
+}
+
+/* Секции контента */
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.section h2, .footer-links h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #c5a880; /* Золотой акцент для заголовков */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: 3px solid #c5a880;
+    padding-left: 10px;
+    margin-bottom: 4px;
+}
+
+/* Карточки объектов недвижимости */
+.object-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    overflow: hidden; /* Чтобы угры фотки скруглялись вместе с карточкой */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.object-image {
+    width: 100%;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.img-placeholder {
+    color: #4b5563;
+    font-size: 14px;
+}
+
+.object-info {
+    padding: 16px;
+}
+
+.object-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #25d366; /* Зеленый цвет для ценника */
+    margin-bottom: 8px;
+}
+
+.desc {
+    font-size: 13px;
+    color: #9ca3af;
+    line-height: 1.5;
+}
+
+/* Карточки Ипотеки и Услуг */
+.service-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.service-icon {
+    font-size: 24px;
+    background: rgba(197, 168, 128, 0.1);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.service-text h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #f3f4f6;
+}
+
+.service-text p {
+    font-size: 13px;
+    color: #9ca3af;
+    line-height: 1.4;
+}
+
+/* Блок подвала с кнопками контактов */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: rgba(197, 168, 128, 0.03); /* Легкий золотистый оттенок фона */
+    padding: 20px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(197, 168, 128, 0.1);
+    margin-top: 10px;
+}
+
+.footer-desc {
+    font-size: 13px;
+    color: #9ca3af;
+    margin-bottom: 8px;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Кнопки мессенджеров */
+.btn {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.25s ease;
+    display: block;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-wa {
+    background: #25d366;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+}
+
+.btn-tg {
+    background: #2481cc;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(36, 129, 204, 0.2);
+}
+
+/* Российский MAX — сделаем его в дерзком красно-бордовом или оранжевом стиле (под их бренд), либо стильный белый */
+.btn-max {
+    background: #ff5722; /* Насыщенный оранжево-красный, заметный */
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.2);
+}
+
+.btn-site {
+    background: transparent;
+    color: #c5a880;
+    border: 1px solid #c5a880;
+}
+.btn-site:hover {
+    background: rgba(197, 168, 128, 0.1);
+}
