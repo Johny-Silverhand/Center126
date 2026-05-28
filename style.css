@@ -14,6 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    width: 100vw;
 }
 
 /* Стили текстового логотипа */
