@@ -43,19 +43,22 @@
         </ul>
 
        <div class="action-buttons">
-    <!-- WhatsApp: используем api.whatsapp.com для стабильности -->
-    <a href="https://api.whatsapp.com/send?phone=79624491411" target="_blank" rel="noopener noreferrer" class="btn btn-wa">Связаться в WhatsApp</a>
-    
-    <!-- Telegram: используем t.me (это самый надежный способ для веба) -->
-    <a href="tg://resolve?domain=NovostroykiStav" class="btn btn-tg">Связаться в Telegram</a>
+    <!-- WhatsApp: универсальный вариант -->
+    <a href="https://wa.me/79624491411" target="_blank" class="btn btn-wa">Связаться в WhatsApp</a>
 
-    
-    <!-- Кнопка вызова -->
+    <!-- Telegram: умная ссылка -->
+    <a href="tg://resolve?domain=NovostroykiStav" class="btn btn-tg" 
+       onclick="setTimeout(function(){ window.location.href='https://t.me/NovostroykiStav'; }, 1000);">
+       Связаться в Telegram
+    </a>
+
+    <!-- Кнопка Позвонить -->
     <a href="tel:+79624491411" class="btn btn-call">Позвонить: +7 962 449-14-11</a>
-    
+
     <!-- Основной сайт -->
-    <a href="https://nedvijimost.pro/" target="_blank" rel="noopener noreferrer" class="btn btn-site">Перейти на основной сайт</a>
+    <a href="https://nedvijimost.pro/" target="_blank" class="btn btn-site">Перейти на основной сайт</a>
 </div>
+
 
 
     </main>
