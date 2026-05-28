@@ -42,11 +42,21 @@
             <li>Деньги на счету <strong>«Эскроу»</strong> до момента выдачи ключей.</li>
         </ul>
 
-        <div class="action-buttons">
-            <a href="https://wa.me/79624491411" class="btn btn-wa">Связаться в WhatsApp</a>
-            <a href="https://t.me/NovostroykiStav" class="btn btn-tg">Связаться в Telegram</a>
-            <a href="https://nedvijimost.pro/" class="btn btn-site">Перейти на основной сайт</a>
-        </div>
+       <div class="action-buttons">
+    <!-- WhatsApp: используем api.whatsapp.com для стабильности -->
+    <a href="https://api.whatsapp.com/send?phone=79624491411" target="_blank" rel="noopener noreferrer" class="btn btn-wa">Связаться в WhatsApp</a>
+    
+    <!-- Telegram: используем t.me (это самый надежный способ для веба) -->
+    <a href="https://t.me/NovostroykiStav" target="_blank" rel="noopener noreferrer" class="btn btn-tg">Связаться в Telegram</a>
+    
+    <!-- Кнопка вызова -->
+    <a href="tel:+79624491411" class="btn btn-call">Позвонить: +7 962 449-14-11</a>
+    
+    <!-- Основной сайт -->
+    <a href="https://nedvijimost.pro/" target="_blank" rel="noopener noreferrer" class="btn btn-site">Перейти на основной сайт</a>
+</div>
+
+
     </main>
 </div>
 
