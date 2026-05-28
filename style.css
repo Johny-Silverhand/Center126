@@ -42,10 +42,63 @@ body {
 
 .main-text { margin-bottom: 20px; font-weight: 500; text-align: center; }
 
-.banks-block { background: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; }
-.banks-title { font-size: 13px; color: #555; margin-bottom: 10px; }
-.banks-logos { display: flex; justify-content: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
-.bank-tag { background: #2e7d32; color: white; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: bold; }
+.banks-block { 
+    background: #ffffff; 
+    border: 1px solid #e0e0e0; 
+    padding: 20px; 
+    border-radius: 12px; 
+    margin-bottom: 20px; 
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.banks-header { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 10px; }
+.banks-header h3 { color: #2c3e50; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.banks-title { 
+    font-size: 13px; 
+    color: #555; 
+    margin-bottom: 15px; 
+    font-weight: 600; 
+}
+
+.banks-footer { 
+    margin-top: 15px; 
+    padding-top: 10px; 
+    border-top: 1px dashed #ccc; 
+}
+
+.banks-footer p { 
+    font-size: 12px; 
+    color: #2e7d32; 
+    font-style: italic;
+    font-weight: 500;
+}
+
+.banks-logos { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 15px; 
+    margin: 15px 0; 
+    flex-wrap: wrap; /* Чтобы на телефонах переносились, если не влезают */
+}
+
+.bank-logo {
+    height: 35px; /* Фиксируем высоту для всех лого, чтобы они были в один ряд */
+    width: auto;
+    object-fit: contain;
+    padding: 5px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+.bank-logo:hover {
+    transform: scale(1.1); /* Легкое увеличение при наведении */
+}
+
 .banks-desc { font-size: 12px; color: #888; }
 
 .info-list { list-style: none; margin-bottom: 25px; }
