@@ -5,51 +5,69 @@
     <title>Став Строй | Ипотека</title>
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-    /* Стили для логики */
-    .hidden-content { display: none; }
-    .ui-block-main { cursor: pointer; border: 1px solid rgba(255,255,255,0.1); }
-    
-    /* ИСПРАВЛЕННО: текст теперь черный, а не белый */
-    .banks-footer p, .info-list li { 
-        color: #000000 !important; 
-        font-weight: 700 !important; 
-    }
-    
-    .main-header { border-bottom: none !important; }
-</style>
+        /* Логика сворачивания */
+        .hidden-content { display: none; }
+        .ui-block-main { cursor: pointer; }
 
+        /* Фикс цвета и принудительное центрирование */
+        .banks-footer p, .info-list li, .banks-title { 
+            color: #000000 !important; 
+            font-weight: 700 !important; 
+        }
+        .banks-title { text-align: center; }
+
+        /* Стили для анимированной стрелочки */
+        .arrow-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 5px;
+            height: 15px;
+        }
+        .arrow-down {
+            width: 10px;
+            height: 10px;
+            border-right: 3px solid #2e7d32;
+            border-bottom: 3px solid #2e7d32;
+            transform: rotate(45deg);
+            animation: bounce 1.6s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(45deg); opacity: 0.5; }
+            50% { transform: translateY(5px) rotate(45deg); opacity: 1; }
+        }
+    </style>
 </head>
 <body>
 
 <div class="main-container">
     <header class="main-header">
-        <!-- Текст удален по требованию -->
-    </header>
+        </header>
 
-    <!-- Блок 1: Кликабельный -->
-    <main class="ui-block ui-block-main" onclick="document.getElementById('details').classList.toggle('hidden-content')">
-    <div class="title-block">
-        <h2>Помощь в одобрении ипотеки</h2>
-        <p class="subtitle">Просто и легко</p>
-    </div>
-    <div class="main-text">
-        <p style="margin-bottom: 10px;"><strong>Наши партнёры:</strong></p>
-        
-        <div class="banks-logos">
-            <img src="sber.png" alt="Сбер" class="bank-logo">
-            <img src="vtb.png" alt="ВТБ" class="bank-logo">
-            <img src="alfa.png" alt="Альфа-Банк" class="bank-logo">
-            <img src="sovkom.png" alt="Совкомбанк" class="bank-logo">
+    <main class="ui-block ui-block-main" style="padding-top: 20px; padding-bottom: 10px;" onclick="document.getElementById('details').classList.toggle('hidden-content')">
+        <div class="title-block" style="margin-bottom: 10px; padding-bottom: 6px;">
+            <h2>Ипотека 6%</h2>
+            <p class="subtitle">Помощь в одобрении</p>
         </div>
-        
-        <p style="margin-top: 15px;">Семейная ипотека от 6%.</p>
-    </div>
-</main>
+        <div class="main-text" style="margin-bottom: 0;">
+            <p class="banks-title" style="margin-bottom: 5px;"><strong>Официальные партнёры:</strong></p>
+            
+            <div class="banks-logos" style="margin: 5px 0;">
+                <img src="sber.png" alt="Сбер" class="bank-logo">
+                <img src="vtb.png" alt="ВТБ" class="bank-logo">
+                <img src="alfa.png" alt="Альфа-Банк" class="bank-logo">
+                <img src="sovkom.png" alt="Совкомбанк" class="bank-logo">
+            </div>
+            
+            <div class="arrow-container">
+                <div class="arrow-down"></div>
+            </div>
+        </div>
+    </main>
 
-
-    <!-- Блоки, которые скрыты до клика -->
     <div id="details" class="hidden-content">
         <div class="ui-block">
             <div class="title-block">
