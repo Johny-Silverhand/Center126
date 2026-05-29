@@ -6,69 +6,62 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-
-
 </head>
 <body>
 
+<!-- Слой для фона -->
+
 <div class="main-container">
-    <!-- Текстовый логотип -->
+    
     <header class="main-header">
         <div class="logo-text">Став<span>Строй</span></div>
     </header>
 
-    <main class="content-card">
+    <!-- Блок 1: Основная информация -->
+    <main class="ui-block">
         <div class="title-block">
             <h2>Ипотека</h2>
             <p class="subtitle">Просто, легко, безопасно</p>
         </div>
-
         <div class="main-text">
             <p><strong>Помощь в одобрении ипотеки.</strong> Семейная ипотека от 6%.</p>
         </div>
-
-        <div class="banks-block">
-    <div class="banks-header">
-        <span class="icon">💼</span> 
-        <h3>Наши партнеры</h3>
-    </div>
-     <p class="banks-title">С нами работают сотрудники и менеджеры ведущих банков:</p>
-            <div class="banks-logos">
-    <img src="sber.png" alt="Сбер" class="bank-logo">
-    <img src="vtb.png" alt="ВТБ" class="bank-logo">
-    <img src="alfa.png" alt="Альфа-Банк" class="bank-logo">
-    <img src="sovkom.png" alt="Совкомбанк" class="bank-logo">
-<div class="banks-footer">
-        <p>Наши партнеры проконсультируют и помогут получить одобрение на льготных условиях.</p>
-    </div>
-</div>
-
         <ul class="info-list">
             <li>Регистрация договора по <strong>214 Ф.З.</strong></li>
             <li>Оплата квартиры через <strong>Сбер Банк</strong> после регистрации в РосРеестре.</li>
             <li>Деньги на счету <strong>«Эскроу»</strong> до момента выдачи ключей.</li>
         </ul>
-
-       <div class="action-buttons">
-    <!-- WhatsApp: универсальный вариант -->
-    <a href="https://wa.me/79624491411" target="_blank" class="btn btn-wa">Связаться в WhatsApp</a>
-
-    <!-- Telegram: умная ссылка -->
-    <a href="tg://resolve?domain=NovostroykiStav" class="btn btn-tg" 
-       onclick="setTimeout(function(){ window.location.href='https://t.me/NovostroykiStav'; }, 1000);">
-       Связаться в Telegram
-    </a>
-
-    <!-- Кнопка Позвонить -->
-    <a href="tel:+79624491411" class="btn btn-call">Позвонить: +7 962 449-14-11</a>
-
-    <!-- Основной сайт -->
-    <a href="https://nedvijimost.pro/" target="_blank" class="btn btn-site">Перейти на основной сайт</a>
-</div>
-
-
-
     </main>
+
+    <!-- Блок 2: Партнеры -->
+    <div class="ui-block">
+        <div class="banks-header">
+            <span class="icon">💼</span> 
+            <h3>Наши партнеры</h3>
+        </div>
+        <p class="banks-title">С нами работают сотрудники и менеджеры ведущих банков:</p>
+        <div class="banks-logos">
+            <img src="sber.png" alt="Сбер" class="bank-logo">
+            <img src="vtb.png" alt="ВТБ" class="bank-logo">
+            <img src="alfa.png" alt="Альфа-Банк" class="bank-logo">
+            <img src="sovkom.png" alt="Совкомбанк" class="bank-logo">
+        </div>
+        <div class="banks-footer">
+            <p>Наши партнеры проконсультируют и помогут получить одобрение на льготных условиях.</p>
+        </div>
+    </div>
+
+    <!-- Блок 3: Кнопки связи -->
+    <div class="action-buttons">
+        <a href="https://wa.me/79624491411" target="_blank" class="btn btn-wa">Связаться в WhatsApp</a>
+        <a href="tg://resolve?domain=NovostroykiStav" class="btn btn-tg" 
+           onclick="setTimeout(function(){ window.location.href='https://t.me/NovostroykiStav'; }, 1000);">
+           Связаться в Telegram
+        </a>
+        <a href="tel:+79624491411" class="btn btn-call">Позвонить: +7 962 449-14-11</a>
+        <a href="https://nedvijimost.pro/" target="_blank" class="btn btn-site">Перейти на основной сайт</a>
+    </div>
+
 </div>
 
 </body>
