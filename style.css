@@ -2,84 +2,87 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
 html { touch-action: manipulation; }
 
-/* Фон через псевдоэлемент body */
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    overflow-x: hidden;
-    position: relative;
+body { 
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center; 
+    padding: 20px; overflow-x: hidden; position: relative; color: #000 !important;
 }
 
 body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('my-bg.jpg') no-repeat center center / cover;
+    content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('my-bg.jpg') no-repeat center center / cover;
     z-index: -1;
 }
 
-/* Контейнер */
 .main-container { width: 100%; max-width: 450px; display: flex; flex-direction: column; align-items: center; }
 
-/* Премиальные блоки */
+/* Блоки */
 .ui-block {
-    background: rgba(255, 255, 255, 0.95); /* Чуть плотнее для премиум вида */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 28px;
-    padding: 32px; /* Добавили воздуха */
-    margin-bottom: 24px;
+    background: #ffffff !important; 
+    border-radius: 24px;
+    padding: 30px;
+    margin-bottom: 20px;
     width: 100%;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-    .title-block { margin-top: 10px; }
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+    opacity: 1 !important;
 }
 
 /* Логотип */
 .main-header { text-align: center; margin-bottom: 35px; }
-.logo-text { font-size: 44px; font-weight: 800; color: #ffffff; letter-spacing: -1px; text-transform: uppercase; text-shadow: 2px 4px 10px rgba(0,0,0,0.4); }
-.logo-text span { color: #2e7d32; }
-.logo-text::after { content: ''; display: block; width: 90px; height: 4px; background: #ffd600; margin: 12px auto 0; border-radius: 2px; }
+.logo-text { font-size: 44px; font-weight: 800; color: #ffffff !important; text-transform: uppercase; text-shadow: 2px 4px 10px rgba(0,0,0,0.4); }
+.logo-text span { color: #2e7d32 !important; }
+.logo-text::after { display: none !important; }
 
 /* Текстовые блоки */
 .title-block { text-align: center; border-bottom: 2px solid #2e7d32; padding-bottom: 12px; margin-bottom: 20px; }
-.title-block h2 { color: #1b5e20; text-transform: uppercase; font-size: 24px; font-weight: 800; letter-spacing: 0.5px; }
-.subtitle { font-size: 14px; color: #666; margin-top: 5px; text-transform: uppercase; letter-spacing: 1.5px; }
-.main-text { font-weight: 500; text-align: center; font-size: 16px; color: #1a1a1a; line-height: 1.6; margin-bottom: 20px; }
+.title-block h2 { color: #000 !important; text-transform: uppercase; font-size: 24px; font-weight: 800; }
+.subtitle { font-size: 14px; color: #333 !important; margin-top: 5px; text-transform: uppercase; font-weight: 600; }
+.main-text { 
+    font-weight: 600; 
+    color: #000 !important; 
+    font-size: 16px; 
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+    text-align: center; /* Центрирование текста */
+}
 
+/* Списки */
 .info-list { list-style: none; margin-top: 20px; }
-.info-list li { margin-bottom: 16px; font-size: 15px; padding-left: 30px; position: relative; color: #333; line-height: 1.5; font-weight: 500; }
-.info-list li::before { content: '✓'; color: #2e7d32; position: absolute; left: 0; font-weight: 800; font-size: 18px; }
+.info-list li { 
+    margin-bottom: 16px; font-size: 15px; padding-left: 30px; 
+    position: relative; color: #000 !important; line-height: 1.5; font-weight: 700; 
+}
+.info-list li::before { content: '✓'; color: #2e7d32 !important; position: absolute; left: 0; font-weight: 800; }
 
-/* Блок партнеров */
-.banks-header { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 15px; }
-.banks-header h3 { color: #2c3e50; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; }
+/* Лого и футер */
 .banks-logos { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 15px 0; flex-wrap: wrap; }
-.bank-logo { height: 45px; width: auto; object-fit: contain; padding: 4px; }
+.bank-logo { height: 45px; width: auto; object-fit: contain; }
+.banks-footer { margin-top: 15px; padding-top: 15px; border-top: 1px solid #ccc; }
+.banks-footer p { 
+    font-size: 15px; 
+    color: #000 !important; 
+    font-weight: 700; 
+    text-align: center; /* Добавили центрирование */
+    margin: 0; 
+    padding: 0;
+}
 
-.banks-footer { margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; }
-.banks-footer p { font-size: 12px; color: #555; font-style: italic; font-weight: 500; line-height: 1.4; }
+.banks-title {
+    color: #000 !important;
+    font-weight: 700 !important;
+    font-size: 14px; /* Можно чуть уменьшить, если он кажется слишком громоздким */
+    text-align: center;
+    margin-bottom: 10px;
+}
 
 /* Кнопки */
 .action-buttons { width: 100%; display: flex; flex-direction: column; gap: 14px; }
 .btn { 
-    padding: 20px; 
-    border-radius: 22px; 
-    text-decoration: none; 
-    font-weight: 700; 
-    text-align: center; 
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-    font-size: 15px; 
-    text-transform: uppercase; 
-    letter-spacing: 0.8px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+    padding: 20px; border-radius: 22px; text-decoration: none; font-weight: 700; text-align: center; 
+    transition: all 0.3s; font-size: 15px; text-transform: uppercase; color: #fff !important;
 }
-.btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
-
-.btn-wa { background: #25d366; color: white; }
-.btn-tg { background: #0088cc; color: white; }
-.btn-call { background: #2c3e50; color: white; }
-.btn-site { background: #fff; color: #333; border: 2px solid #ddd; }
+.btn-wa { background: #25d366; }
+.btn-tg { background: #0088cc; }
+.btn-call { background: #2c3e50; }
+.btn-site { background: #fff; color: #333 !important; border: 2px solid #ddd; }
