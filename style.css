@@ -4,85 +4,102 @@ html { touch-action: manipulation; }
 
 body { 
     min-height: 100vh; display: flex; flex-direction: column; align-items: center; 
-    padding: 20px; overflow-x: hidden; position: relative; color: #000 !important;
+    padding: 20px; overflow-x: hidden; position: relative; 
 }
 
 body::before {
     content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('my-bg.jpg') no-repeat center center / cover;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('my-bg.jpg') no-repeat center center / cover;
     z-index: -1;
 }
 
 .main-container { width: 100%; max-width: 450px; display: flex; flex-direction: column; align-items: center; }
 
-/* Блоки */
+/* Премиальные blocks */
 .ui-block {
-    background: #ffffff !important; 
+    background: #ffffff; 
     border-radius: 24px;
-    padding: 30px;
+    padding: 24px 24px; /* Оптимизировали паддинги для мобильных */
     margin-bottom: 20px;
     width: 100%;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     position: relative;
     z-index: 1;
-    opacity: 1 !important;
+    overflow: hidden;
 }
 
-/* Логотип */
-.main-header { text-align: center; margin-bottom: 35px; }
-.logo-text { font-size: 44px; font-weight: 800; color: #ffffff !important; text-transform: uppercase; text-shadow: 2px 4px 10px rgba(0,0,0,0.4); }
-.logo-text span { color: #2e7d32 !important; }
-.logo-text::after { display: none !important; }
-
-/* Текстовые блоки */
-.title-block { text-align: center; border-bottom: 2px solid #2e7d32; padding-bottom: 12px; margin-bottom: 20px; }
-.title-block h2 { color: #000 !important; text-transform: uppercase; font-size: 24px; font-weight: 800; }
-.subtitle { font-size: 14px; color: #333 !important; margin-top: 5px; text-transform: uppercase; font-weight: 600; }
-.main-text { 
-    font-weight: 600; 
-    color: #000 !important; 
-    font-size: 16px; 
-    line-height: 1.6; 
-    margin-bottom: 20px; 
-    text-align: center; /* Центрирование текста */
+/* Первый блок делаем максимально компактным */
+.ui-block-main {
+    padding-top: 20px;
+    padding-bottom: 8px;
 }
+
+/* Заголовки */
+.title-block { text-align: center; border-bottom: 2px solid #2e7d32; padding-bottom: 8px; margin-bottom: 15px; }
+.title-block h2 { color: #000000; text-transform: uppercase; font-size: 24px; font-weight: 900; letter-spacing: -0.5px; }
+.subtitle { font-size: 13px; color: #555; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-top: 4px; }
+
+/* Тексты */
+.main-text { width: 100%; display: flex; flex-direction: column; align-items: center; }
+.banks-title { color: #000000 !important; font-weight: 700 !important; font-size: 15px; text-align: center; margin-bottom: 5px; }
+
+/* ИСПРАВЛЕННЫЕ ЛОГОТИПЫ: Жестко в один ряд без переносов */
+.banks-logos { 
+    display: flex; 
+    justify-content: space-between; /* Распределяем равномерно */
+    align-items: center; 
+    gap: 10px; 
+    margin: 8px 0; 
+    flex-wrap: nowrap !important; /* ЗАПРЕТ ПЕРЕНОСА НА НОВУЮ СТРОКУ */
+    width: 100%; 
+}
+
+/* Уменьшили высоту, чтобы на мелких экранах все 4 штуки влезали идеально */
+.bank-logo { 
+    height: 30px; 
+    width: auto; 
+    max-width: 22%; /* Чтобы картинки не выдавливали друг друга */
+    object-fit: contain; 
+}
+
+/* Текст в футере блоков */
+.banks-footer p { font-size: 15px; color: #000000 !important; font-weight: 700; text-align: center; line-height: 1.5; }
 
 /* Списки */
-.info-list { list-style: none; margin-top: 20px; }
-.info-list li { 
-    margin-bottom: 16px; font-size: 15px; padding-left: 30px; 
-    position: relative; color: #000 !important; line-height: 1.5; font-weight: 700; 
-}
-.info-list li::before { content: '✓'; color: #2e7d32 !important; position: absolute; left: 0; font-weight: 800; }
+.info-list { list-style: none; width: 100%; margin-top: 10px; }
+.info-list li { margin-bottom: 14px; font-size: 15px; padding-left: 30px; position: relative; color: #000000 !important; line-height: 1.5; font-weight: 700; }
+.info-list li::before { content: '✓'; color: #2e7d32; position: absolute; left: 0; font-weight: 900; font-size: 18px; }
 
-/* Лого и футер */
-.banks-logos { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 15px 0; flex-wrap: wrap; }
-.bank-logo { height: 45px; width: auto; object-fit: contain; }
-.banks-footer { margin-top: 15px; padding-top: 15px; border-top: 1px solid #ccc; }
-.banks-footer p { 
-    font-size: 15px; 
-    color: #000 !important; 
-    font-weight: 700; 
-    text-align: center; /* Добавили центрирование */
-    margin: 0; 
-    padding: 0;
+/* Анимированная стрелочка вниз */
+.arrow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 6px;
+    height: 15px;
 }
 
-.banks-title {
-    color: #000 !important;
-    font-weight: 700 !important;
-    font-size: 14px; /* Можно чуть уменьшить, если он кажется слишком громоздким */
-    text-align: center;
-    margin-bottom: 10px;
+.arrow-down {
+    width: 10px;
+    height: 10px;
+    border-right: 3px solid #2e7d32;
+    border-bottom: 3px solid #2e7d32;
+    transform: rotate(45deg);
+    animation: bounce 1.6s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(45deg); opacity: 0.5; }
+    50% { transform: translateY(4px) rotate(45deg); opacity: 1; }
 }
 
 /* Кнопки */
-.action-buttons { width: 100%; display: flex; flex-direction: column; gap: 14px; }
+.action-buttons { width: 100%; display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
 .btn { 
-    padding: 20px; border-radius: 22px; text-decoration: none; font-weight: 700; text-align: center; 
-    transition: all 0.3s; font-size: 15px; text-transform: uppercase; color: #fff !important;
+    padding: 18px; border-radius: 20px; text-decoration: none; font-weight: 800; text-align: center; 
+    transition: all 0.3s; font-size: 15px; text-transform: uppercase; box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
 }
-.btn-wa { background: #25d366; }
-.btn-tg { background: #0088cc; }
-.btn-call { background: #2c3e50; }
-.btn-site { background: #fff; color: #333 !important; border: 2px solid #ddd; }
+.btn-wa { background: #25d366; color: white; }
+.btn-tg { background: #0088cc; color: white; }
+.btn-call { background: #2c3e50; color: white; }

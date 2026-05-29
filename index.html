@@ -47,7 +47,8 @@
     <header class="main-header">
         </header>
 
-    <main class="ui-block ui-block-main" style="padding-top: 20px; padding-bottom: 10px;" onclick="document.getElementById('details').classList.toggle('hidden-content')">
+    <main class="ui-block ui-block-main" style="padding-top: 20px; padding-bottom: 10px;" 
+          onclick="const details = document.getElementById('details'); details.classList.toggle('hidden-content'); if(!details.classList.contains('hidden-content')) { setTimeout(() => details.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); }">
         <div class="title-block" style="margin-bottom: 10px; padding-bottom: 6px;">
             <h2>Ипотека 6%</h2>
             <p class="subtitle">Помощь в одобрении</p>
