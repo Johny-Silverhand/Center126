@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="notranslate" translate="no">
 <head>
     <meta charset="UTF-8">
     <title>Недвижимость | Ипотека</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="google" content="notranslate" />
+    <meta name="yandex" content="notranslate" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         /* Логика сворачивания */
         .hidden-content { display: none; }
@@ -39,13 +42,58 @@
             0%, 100% { transform: translateY(0) rotate(45deg); opacity: 0.5; }
             50% { transform: translateY(5px) rotate(45deg); opacity: 1; }
         }
+
+        /* Выравнивание оригинальных картинок, чтобы ничего не плыло */
+        .bank-logo {
+            height: 24px !important;
+            width: auto !important;
+            max-width: 60px !important;
+            object-fit: contain !important;
+            display: inline-block !important;
+            vertical-align: middle !important;
+        }
+
+        /* Фикс: сдвигаем значки ближе друг к другу по центру */
+        .banks-logos-centered {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 15px !important; /* Расстояние между логотипами, можно сделать 10px или 20px */
+            width: 100% !important;
+        }
+        
+        /* Стилизация кнопки МАКС */
+        .btn-max {
+            background-color: #5B35C5 !important; /* Фирменный фиолетовый цвет МАКС */
+            color: #ffffff !important;
+        }
+        
+        /* Простая иконка-сообщение для кнопки МАКС */
+        .btn-icon-msg {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            border: 2px solid #ffffff;
+            border-radius: 4px;
+            position: relative;
+            vertical-align: middle;
+        }
+        .btn-icon-msg::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 3px;
+            border-width: 5px 5px 0 0;
+            border-style: solid;
+            border-color: #ffffff transparent;
+        }
     </style>
 </head>
 <body>
 
-<div class="main-container">
-    <header class="main-header">
-        </header>
+<div class="main-container notranslate" translate="no">
+    <header class="main-header"></header>
 
     <main class="ui-block ui-block-main" style="padding-top: 20px; padding-bottom: 10px;" 
           onclick="const details = document.getElementById('details'); details.classList.toggle('hidden-content'); if(!details.classList.contains('hidden-content')) { setTimeout(() => details.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); }">
@@ -56,11 +104,12 @@
         <div class="main-text" style="margin-bottom: 0;">
             <p class="banks-title" style="margin-bottom: 5px;"><strong>Официальные партнёры:</strong></p>
             
-            <div class="banks-logos" style="margin: 5px 0;">
-                <img src="sber.png" alt="Сбер" class="bank-logo">
-                <img src="vtb.png" alt="ВТБ" class="bank-logo">
-                <img src="alfa.png" alt="Альфа-Банк" class="bank-logo">
-                <img src="sovkom.png" alt="Совкомбанк" class="bank-logo">
+            <!-- Добавлен новый класс banks-logos-centered, который стянет их к центру -->
+            <div class="banks-logos banks-logos-centered" style="margin: 5px 0;">
+                <img src="b1.png" alt="Партнер 1" class="bank-logo">
+                <img src="b2.png" alt="Партнер 2" class="bank-logo">
+                <img src="b3.png" alt="Партнер 3" class="bank-logo">
+                <img src="b4.png" alt="Партнер 4" class="bank-logo">
             </div>
             
             <div class="arrow-container">
@@ -76,11 +125,13 @@
                 <p class="subtitle">Надёжность и доверие</p>
             </div>
             <p class="banks-title">С нами работают сотрудники и менеджеры ведущих банков:</p>
-            <div class="banks-logos">
-                <img src="sber.png" alt="Сбер" class="bank-logo">
-                <img src="vtb.png" alt="ВТБ" class="bank-logo">
-                <img src="alfa.png" alt="Альфа-Банк" class="bank-logo">
-                <img src="sovkom.png" alt="Совкомбанк" class="bank-logo">
+            
+            <!-- Здесь тоже стягиваем логотипы к центру -->
+            <div class="banks-logos banks-logos-centered">
+                <img src="b1.png" alt="Партнер 1" class="bank-logo">
+                <img src="b2.png" alt="Партнер 2" class="bank-logo">
+                <img src="b3.png" alt="Партнер 3" class="bank-logo">
+                <img src="b4.png" alt="Партнер 4" class="bank-logo">
             </div>
             <div class="banks-footer">
                 <p>Которые проконсультируют и одобрят ипотеку на льготных условиях.</p>
@@ -95,7 +146,6 @@
             <ul class="info-list">
                 <li>Регистрация договора по <strong>214 Ф.З.</strong></li>
                 <li>Оплата квартиры производится через <strong>Сбер Банк</strong> после регистрации на ваше имя в РосРеестре.</li>
-
                 <li>Денежные средства на счету <strong>«Эскроу»</strong> до выдачи ключей.</li>
             </ul>
         </div>
@@ -104,6 +154,29 @@
     <div class="action-buttons">
         <a href="https://wa.me/79624491411" target="_blank" class="btn btn-wa">Связаться в WhatsApp</a>
         <a href="tg://resolve?domain=NovostroykiStav" class="btn btn-tg">Связаться в Telegram</a>
+        
+        <!-- Кнопка МАКС с переходом в чат по номеру телефона -->
+      <a href="#" onclick="openMaxMessenger(event)" class="btn btn-max">
+    <span class="btn-icon-msg"></span>Связаться в МАКС
+</a>
+
+<script>
+function openMaxMessenger(e) {
+    e.preventDefault();
+    
+    // Пробуем запустить само приложение на телефоне
+    window.location.href = "imx://chat?phone=79624491411";
+    
+    // Если приложения нет, через 1.5 секунды сработает этот блок.
+    // Так как веб-версии нет, лучше выдать красивое окно или просто перекинуть на инфу о мессенджере
+    setTimeout(function() {
+        alert("Если у вас установлен мессенджер МАКС, перенаправление произойдет автоматически. Если нет, пожалуйста, используйте WhatsApp или Telegram.");
+    }, 1500);
+}
+</script>
+
+
+
         <a href="tel:+79624491411" class="btn btn-call">Позвонить: +7 962 449-14-11</a>
     </div>
 </div>
