@@ -58,13 +58,13 @@
             display: flex !important;
             justify-content: center !important;
             align-items: center !important;
-            gap: 15px !important; /* Расстояние между логотипами, можно сделать 10px или 20px */
+            gap: 15px !important;
             width: 100% !important;
         }
         
         /* Стилизация кнопки МАКС */
         .btn-max {
-            background-color: #5B35C5 !important; /* Фирменный фиолетовый цвет МАКС */
+            background-color: #5B35C5 !important;
             color: #ffffff !important;
         }
         
@@ -88,6 +88,114 @@
             border-style: solid;
             border-color: #ffffff transparent;
         }
+
+        /* ========================================================
+           СТИЛИ ДЛЯ КРАСИВОГО МОДАЛЬНОГО ОКНА ИНСТРУКЦИИ
+        ======================================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-window {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 16px;
+            max-width: 340px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            font-family: 'Montserrat', sans-serif;
+            text-align: left;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            box-sizing: border-box;
+        }
+        .modal-overlay.active .modal-window {
+            transform: scale(1);
+        }
+        .modal-title {
+            color: #5B35C5;
+            font-size: 18px;
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .modal-steps {
+            padding-left: 20px;
+            margin-bottom: 20px;
+            color: #333333;
+            font-size: 14px;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+        .modal-steps li {
+            margin-bottom: 10px;
+        }
+        .modal-phone-box {
+            background: #f4f4f9;
+            border: 1px dashed #5B35C5;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+            position: relative;
+        }
+        .modal-phone-box:hover {
+            background: #ededf7;
+        }
+        .modal-btn-close {
+            display: block;
+            width: 100%;
+            background: #5B35C5;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.2s;
+        }
+        .modal-btn-close:hover {
+            background: #4a29a3;
+        }
+        /* Всплывающий микро-тоаст внутри модалки */
+        #modal-toast {
+            display: none;
+            position: absolute;
+            background: #2e7d32;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body>
@@ -104,7 +212,6 @@
         <div class="main-text" style="margin-bottom: 0;">
             <p class="banks-title" style="margin-bottom: 5px;"><strong>Официальные партнёры:</strong></p>
             
-            <!-- Добавлен новый класс banks-logos-centered, который стянет их к центру -->
             <div class="banks-logos banks-logos-centered" style="margin: 5px 0;">
                 <img src="b1.png" alt="Партнер 1" class="bank-logo">
                 <img src="b2.png" alt="Партнер 2" class="bank-logo">
@@ -126,7 +233,6 @@
             </div>
             <p class="banks-title">С нами работают сотрудники и менеджеры ведущих банков:</p>
             
-            <!-- Здесь тоже стягиваем логотипы к центру -->
             <div class="banks-logos banks-logos-centered">
                 <img src="b1.png" alt="Партнер 1" class="bank-logo">
                 <img src="b2.png" alt="Партнер 2" class="bank-logo">
@@ -155,31 +261,72 @@
         <a href="https://wa.me/79624491411" target="_blank" class="btn btn-wa">Связаться в WhatsApp</a>
         <a href="tg://resolve?domain=NovostroykiStav" class="btn btn-tg">Связаться в Telegram</a>
         
-        <!-- Кнопка МАКС с переходом в чат по номеру телефона -->
-      <a href="#" onclick="openMaxMessenger(event)" class="btn btn-max">
-    <span class="btn-icon-msg"></span>Связаться в МАКС
-</a>
+        <!-- Кнопка МАКС теперь просто открывает модальное окно -->
+        <a href="#" onclick="toggleModal(true, event)" class="btn btn-max">
+            <span class="btn-icon-msg"></span>Связаться в МАКС
+        </a>
 
+        <a href="tel:+79624491411" class="btn btn-call">Позвонить</a>
+    </div>
+</div>
+
+<!-- ========================================================
+   СТРУКТУРА МОДАЛЬНОГО ОКНА (ИНСТРУКЦИЯ)
+======================================================== */ -->
+<div id="max-modal" class="modal-overlay" onclick="toggleModal(false, event)">
+    <div class="modal-window" onclick="event.stopPropagation()">
+        <h3 class="modal-title">Инструкция для МАКС</h3>
+        
+        <ol class="modal-steps">
+            <li>Нажмите на поле ниже, чтобы скопировать номер телефона.</li>
+            <li>Откройте приложение <strong>мессенджер МАКС</strong>.</li>
+            <li>Вставьте скопированный номер в строку поиска контактов.</li>
+            <li>Напишите нам для консультации.</li>
+        </ol>
+
+        <div class="modal-phone-box" onclick="copyNumberFromModal()">
+            <span id="modal-toast">Скопировано!</span>
+            <span id="target-phone">+7 (962) 449-14-11</span>
+        </div>
+
+        <button class="modal-btn-close" onclick="toggleModal(false, event)">Понятно</button>
+    </div>
+</div>
+
+<!-- Скрипты управления -->
 <script>
-function openMaxMessenger(e) {
-    e.preventDefault();
+// Показ и скрытие окна
+function toggleModal(show, e) {
+    if (e) e.preventDefault();
+    const modal = document.getElementById('max-modal');
+    if (show) {
+        modal.classList.add('active');
+    } else {
+        modal.classList.remove('active');
+    }
+}
+
+// Быстрое копирование номера из самого окна
+function copyNumberFromModal() {
+    const rawNumber = "+79624491411";
+    const el = document.createElement('textarea');
+    el.value = rawNumber;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
     
-    // Пробуем запустить само приложение на телефоне
-    window.location.href = "imx://chat?phone=79624491411";
-    
-    // Если приложения нет, через 1.5 секунды сработает этот блок.
-    // Так как веб-версии нет, лучше выдать красивое окно или просто перекинуть на инфу о мессенджере
-    setTimeout(function() {
-        alert("Если у вас установлен мессенджер МАКС, перенаправление произойдет автоматически. Если нет, пожалуйста, используйте WhatsApp или Telegram.");
+    // Показываем микро-уведомление "Скопировано!"
+    const toast = document.getElementById('modal-toast');
+    toast.style.display = 'block';
+    setTimeout(() => {
+        toast.style.display = 'none';
     }, 1500);
 }
 </script>
-
-
-
-        <a href="tel:+79624491411" class="btn btn-call">Позвонить: +7 962 449-14-11</a>
-    </div>
-</div>
 
 </body>
 </html>
