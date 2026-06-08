@@ -43,7 +43,6 @@
             50% { transform: translateY(5px) rotate(45deg); opacity: 1; }
         }
 
-        /* Выравнивание оригинальных картинок, чтобы ничего не плыло */
         .bank-logo {
             height: 24px !important;
             width: auto !important;
@@ -53,7 +52,6 @@
             vertical-align: middle !important;
         }
 
-        /* Фикс: сдвигаем значки ближе друг к другу по центру */
         .banks-logos-centered {
             display: flex !important;
             justify-content: center !important;
@@ -62,13 +60,11 @@
             width: 100% !important;
         }
         
-        /* Стилизация кнопки МАКС */
         .btn-max {
             background-color: #5B35C5 !important;
             color: #ffffff !important;
         }
         
-        /* Простая иконка-сообщение для кнопки МАКС */
         .btn-icon-msg {
             display: inline-block;
             width: 16px;
@@ -89,113 +85,27 @@
             border-color: #ffffff transparent;
         }
 
-        /* ========================================================
-           СТИЛИ ДЛЯ КРАСИВОГО МОДАЛЬНОГО ОКНА ИНСТРУКЦИИ
-        ======================================================== */
+        /* Стили модального окна */
         .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            padding: 20px;
-            box-sizing: border-box;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); display: flex;
+            justify-content: center; align-items: center;
+            z-index: 9999; opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease; padding: 20px; box-sizing: border-box;
         }
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
         .modal-window {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 16px;
-            max-width: 340px;
-            width: 100%;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            font-family: 'Montserrat', sans-serif;
-            text-align: left;
-            position: relative;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-            box-sizing: border-box;
+            background: #ffffff; padding: 25px; border-radius: 16px;
+            max-width: 340px; width: 100%; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            font-family: 'Montserrat', sans-serif; text-align: left; position: relative;
+            transform: scale(0.9); transition: transform 0.3s ease;
         }
-        .modal-overlay.active .modal-window {
-            transform: scale(1);
-        }
-        .modal-title {
-            color: #5B35C5;
-            font-size: 18px;
-            font-weight: 800;
-            margin-top: 0;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        .modal-steps {
-            padding-left: 20px;
-            margin-bottom: 20px;
-            color: #333333;
-            font-size: 14px;
-            line-height: 1.5;
-            font-weight: 600;
-        }
-        .modal-steps li {
-            margin-bottom: 10px;
-        }
-        .modal-phone-box {
-            background: #f4f4f9;
-            border: 1px dashed #5B35C5;
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 16px;
-            font-weight: 700;
-            color: #000000;
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: background 0.2s;
-            position: relative;
-        }
-        .modal-phone-box:hover {
-            background: #ededf7;
-        }
-        .modal-btn-close {
-            display: block;
-            width: 100%;
-            background: #5B35C5;
-            color: #fff;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            text-align: center;
-            transition: background 0.2s;
-        }
-        .modal-btn-close:hover {
-            background: #4a29a3;
-        }
-        /* Всплывающий микро-тоаст внутри модалки */
-        #modal-toast {
-            display: none;
-            position: absolute;
-            background: #2e7d32;
-            color: #fff;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+        .modal-overlay.active .modal-window { transform: scale(1); }
+        .modal-title { color: #5B35C5; font-size: 18px; font-weight: 800; margin-bottom: 15px; text-align: center; }
+        .modal-steps { padding-left: 20px; margin-bottom: 20px; color: #333333; font-size: 14px; line-height: 1.5; font-weight: 600; }
+        .modal-phone-box { background: #f4f4f9; border: 1px dashed #5B35C5; padding: 10px; border-radius: 8px; text-align: center; font-size: 16px; font-weight: 700; color: #000000; margin-bottom: 15px; cursor: pointer; }
+        .modal-btn-close { display: block; width: 100%; background: #5B35C5; color: #fff; border: none; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+        #modal-toast { display: none; position: absolute; background: #2e7d32; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 11px; top: -25px; left: 50%; transform: translateX(-50%); }
     </style>
 </head>
 <body>
@@ -211,14 +121,12 @@
         </div>
         <div class="main-text" style="margin-bottom: 0;">
             <p class="banks-title" style="margin-bottom: 5px;"><strong>Официальные партнёры:</strong></p>
-            
             <div class="banks-logos banks-logos-centered" style="margin: 5px 0;">
                 <img src="b1.png" alt="Партнер 1" class="bank-logo">
                 <img src="b2.png" alt="Партнер 2" class="bank-logo">
                 <img src="b3.png" alt="Партнер 3" class="bank-logo">
                 <img src="b4.png" alt="Партнер 4" class="bank-logo">
             </div>
-            
             <div class="arrow-container">
                 <div class="arrow-down"></div>
             </div>
@@ -232,7 +140,6 @@
                 <p class="subtitle">Надёжность и доверие</p>
             </div>
             <p class="banks-title">С нами работают сотрудники и менеджеры ведущих банков:</p>
-            
             <div class="banks-logos banks-logos-centered">
                 <img src="b1.png" alt="Партнер 1" class="bank-logo">
                 <img src="b2.png" alt="Партнер 2" class="bank-logo">
@@ -255,77 +162,70 @@
                 <li>Денежные средства на счету <strong>«Эскроу»</strong> до выдачи ключей.</li>
             </ul>
         </div>
+
+        <div class="ui-block">
+            <div class="title-block">
+                <h2>Наличная форма оплаты</h2>
+            </div>
+            <p style="margin-bottom: 10px; font-weight: 700; color: #000;">При наличной форме оплаты:</p>
+            <ul class="info-list">
+                <li>Юридический отдел подготавливает и составляет договор купли продажи и акты приёма- передачи обьекта который вы покупаете.</li>
+                <li>Совместно сдаём договор купли-продажи в МФЦ для регистрации договора на ваше имя.</li>
+                <li>Рассчет производится переводом через кассу Сбера по реквизитам компании. ( оплата осуществляется после регистрации объекта на ваше имя)</li>
+            </ul>
+            <p style="margin-top: 15px; font-weight: 700; color: #000; text-align: center;">
+                Далее выдаём ключи и вы можете заниматься ремонтом вашей новой квартиры 😊👍🔑
+            </p>
+        </div>
     </div>
 
     <div class="action-buttons">
         <a href="https://wa.me/79624491411" target="_blank" class="btn btn-wa">Связаться в WhatsApp</a>
         <a href="tg://resolve?domain=NovostroykiStav" class="btn btn-tg">Связаться в Telegram</a>
-        
-        <!-- Кнопка МАКС теперь просто открывает модальное окно -->
         <a href="#" onclick="toggleModal(true, event)" class="btn btn-max">
             <span class="btn-icon-msg"></span>Связаться в МАКС
         </a>
-
         <a href="tel:+79624491411" class="btn btn-call">Позвонить</a>
     </div>
 </div>
 
-<!-- ========================================================
-   СТРУКТУРА МОДАЛЬНОГО ОКНА (ИНСТРУКЦИЯ)
-======================================================== */ -->
 <div id="max-modal" class="modal-overlay" onclick="toggleModal(false, event)">
     <div class="modal-window" onclick="event.stopPropagation()">
         <h3 class="modal-title">Инструкция для МАКС</h3>
-        
         <ol class="modal-steps">
             <li>Нажмите на поле ниже, чтобы скопировать номер телефона.</li>
             <li>Откройте приложение <strong>мессенджер МАКС</strong>.</li>
             <li>Вставьте скопированный номер в строку поиска контактов.</li>
             <li>Напишите нам для консультации.</li>
         </ol>
-
         <div class="modal-phone-box" onclick="copyNumberFromModal()">
             <span id="modal-toast">Скопировано!</span>
             <span id="target-phone">+7 (962) 449-14-11</span>
         </div>
-
         <button class="modal-btn-close" onclick="toggleModal(false, event)">Понятно</button>
     </div>
 </div>
 
-<!-- Скрипты управления -->
 <script>
-// Показ и скрытие окна
-function toggleModal(show, e) {
-    if (e) e.preventDefault();
-    const modal = document.getElementById('max-modal');
-    if (show) {
-        modal.classList.add('active');
-    } else {
-        modal.classList.remove('active');
+    function toggleModal(show, e) {
+        if (e) e.preventDefault();
+        const modal = document.getElementById('max-modal');
+        if (show) { modal.classList.add('active'); } 
+        else { modal.classList.remove('active'); }
     }
-}
 
-// Быстрое копирование номера из самого окна
-function copyNumberFromModal() {
-    const rawNumber = "+79624491411";
-    const el = document.createElement('textarea');
-    el.value = rawNumber;
-    el.setAttribute('readonly', '');
-    el.style.position = 'absolute';
-    el.style.left = '-9999px';
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-    
-    // Показываем микро-уведомление "Скопировано!"
-    const toast = document.getElementById('modal-toast');
-    toast.style.display = 'block';
-    setTimeout(() => {
-        toast.style.display = 'none';
-    }, 1500);
-}
+    function copyNumberFromModal() {
+        const rawNumber = "+79624491411";
+        const el = document.createElement('textarea');
+        el.value = rawNumber;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        const toast = document.getElementById('modal-toast');
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 1500);
+    }
 </script>
 
 </body>
