@@ -10,102 +10,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Логика сворачивания */
         .hidden-content { display: none; }
         .ui-block-main { cursor: pointer; }
-
-        /* Фикс цвета и принудительное центрирование */
-        .banks-footer p, .info-list li, .banks-title { 
-            color: #000000 !important; 
-            font-weight: 700 !important; 
-        }
+        .banks-footer p, .info-list li, .banks-title { color: #000000 !important; font-weight: 700 !important; }
         .banks-title { text-align: center; }
-
-        /* Стили для анимированной стрелочки */
-        .arrow-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            margin-top: 5px;
-            height: 15px;
-        }
-        .arrow-down {
-            width: 10px;
-            height: 10px;
-            border-right: 3px solid #2e7d32;
-            border-bottom: 3px solid #2e7d32;
-            transform: rotate(45deg);
-            animation: bounce 1.6s infinite;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0) rotate(45deg); opacity: 0.5; }
-            50% { transform: translateY(5px) rotate(45deg); opacity: 1; }
-        }
-
-        .bank-logo {
-            height: 24px !important;
-            width: auto !important;
-            max-width: 60px !important;
-            object-fit: contain !important;
-            display: inline-block !important;
-            vertical-align: middle !important;
-        }
-
-        .banks-logos-centered {
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            gap: 15px !important;
-            width: 100% !important;
-        }
+        .arrow-container { display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 5px; height: 15px; }
+        .arrow-down { width: 10px; height: 10px; border-right: 3px solid #2e7d32; border-bottom: 3px solid #2e7d32; transform: rotate(45deg); animation: bounce 1.6s infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0) rotate(45deg); opacity: 0.5; } 50% { transform: translateY(5px) rotate(45deg); opacity: 1; } }
+        .bank-logo { height: 24px !important; width: auto !important; max-width: 60px !important; object-fit: contain !important; display: inline-block !important; vertical-align: middle !important; }
+        .banks-logos-centered { display: flex !important; justify-content: center !important; align-items: center !important; gap: 15px !important; width: 100% !important; }
+        .btn-max { background-color: #5B35C5 !important; color: #ffffff !important; }
+        .btn-icon-msg { display: inline-block; width: 16px; height: 16px; margin-right: 8px; border: 2px solid #ffffff; border-radius: 4px; position: relative; vertical-align: middle; }
+        .btn-icon-msg::after { content: ''; position: absolute; bottom: -5px; left: 3px; border-width: 5px 5px 0 0; border-style: solid; border-color: #ffffff transparent; }
         
-        .btn-max {
-            background-color: #5B35C5 !important;
-            color: #ffffff !important;
-        }
-        
-        .btn-icon-msg {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            margin-right: 8px;
-            border: 2px solid #ffffff;
-            border-radius: 4px;
-            position: relative;
-            vertical-align: middle;
-        }
-        .btn-icon-msg::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 3px;
-            border-width: 5px 5px 0 0;
-            border-style: solid;
-            border-color: #ffffff transparent;
-        }
-
         /* Стили модального окна */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6); display: flex;
-            justify-content: center; align-items: center;
-            z-index: 9999; opacity: 0; pointer-events: none;
-            transition: opacity 0.3s ease; padding: 20px; box-sizing: border-box;
-        }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; padding: 20px; box-sizing: border-box; }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal-window {
-            background: #ffffff; padding: 25px; border-radius: 16px;
-            max-width: 340px; width: 100%; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            font-family: 'Montserrat', sans-serif; text-align: left; position: relative;
-            transform: scale(0.9); transition: transform 0.3s ease;
-        }
-        .modal-overlay.active .modal-window { transform: scale(1); }
+        .modal-window { background: #ffffff; padding: 25px; border-radius: 16px; max-width: 340px; width: 100%; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); font-family: 'Montserrat', sans-serif; text-align: left; position: relative; }
         .modal-title { color: #5B35C5; font-size: 18px; font-weight: 800; margin-bottom: 15px; text-align: center; }
         .modal-steps { padding-left: 20px; margin-bottom: 20px; color: #333333; font-size: 14px; line-height: 1.5; font-weight: 600; }
-        .modal-phone-box { background: #f4f4f9; border: 1px dashed #5B35C5; padding: 10px; border-radius: 8px; text-align: center; font-size: 16px; font-weight: 700; color: #000000; margin-bottom: 15px; cursor: pointer; }
+        .modal-phone-box { background: #f4f4f9; border: 1px dashed #5B35C5; padding: 10px; border-radius: 8px; text-align: center; margin-bottom: 15px; cursor: pointer; }
         .modal-btn-close { display: block; width: 100%; background: #5B35C5; color: #fff; border: none; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; }
-        #modal-toast { display: none; position: absolute; background: #2e7d32; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 11px; top: -25px; left: 50%; transform: translateX(-50%); }
+        #modal-toast { display: none; color: #2e7d32; font-size: 12px; font-weight: bold; margin-bottom: 5px; }
     </style>
 </head>
 <body>
@@ -198,10 +124,13 @@
             <li>Вставьте скопированный номер в строку поиска контактов.</li>
             <li>Напишите нам для консультации.</li>
         </ol>
+
         <div class="modal-phone-box" onclick="copyNumberFromModal()">
-            <span id="modal-toast">Скопировано!</span>
-            <span id="target-phone">+7 (962) 449-14-11</span>
+            <div id="modal-toast">Скопировано!</div>
+            <div id="target-phone" style="font-weight: 700; font-size: 16px;">+7 (962) 449-14-11</div>
+            <div style="font-size: 12px; color: #5B35C5; margin-top: 5px; opacity: 0.8;">(Нажмите чтобы скопировать)</div>
         </div>
+
         <button class="modal-btn-close" onclick="toggleModal(false, event)">Понятно</button>
     </div>
 </div>
@@ -210,18 +139,11 @@
     function toggleModal(show, e) {
         if (e) e.preventDefault();
         const modal = document.getElementById('max-modal');
-        if (show) { modal.classList.add('active'); } 
-        else { modal.classList.remove('active'); }
+        modal.classList.toggle('active', show);
     }
 
     function copyNumberFromModal() {
-        const rawNumber = "+79624491411";
-        const el = document.createElement('textarea');
-        el.value = rawNumber;
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
+        navigator.clipboard.writeText("+79624491411");
         const toast = document.getElementById('modal-toast');
         toast.style.display = 'block';
         setTimeout(() => { toast.style.display = 'none'; }, 1500);
@@ -230,3 +152,4 @@
 
 </body>
 </html>
+
