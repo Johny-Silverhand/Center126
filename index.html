@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
     <style>
         .hidden-content { display: none; }
         .ui-block-main { cursor: pointer; }
@@ -39,71 +38,54 @@
 <div class="main-container notranslate" translate="no">
     <header class="main-header"></header>
 
-        <main class="ui-block ui-block-main" style="padding-top: 20px; padding-bottom: 10px;" 
-          onclick="const details = document.getElementById('details'); details.classList.toggle('hidden-content'); if(!details.classList.contains('hidden-content')) { setTimeout(() => details.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); }">
+    <!-- ПЕРВЫЙ БЛОК -->
+    <main class="ui-block ui-block-main" style="padding-top: 20px; padding-bottom: 10px;" 
+        onclick="const details = document.getElementById('details'); details.classList.toggle('hidden-content'); if(!details.classList.contains('hidden-content')) { setTimeout(() => details.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); }">
         <div class="title-block" style="margin-bottom: 10px; padding-bottom: 6px;">
-            <h2>Ипотека семейная 6%</h2>
-            <p class="subtitle">Помощь в одобрении</p>
+            <h2>Семейная ипотека 6%</h2>
+            <p class="subtitle">Наши партнеры</p>
         </div>
         <div class="main-text" style="margin-bottom: 0;">
-            <p class="banks-title" style="margin-bottom: 5px;"><strong>Официальные партнёры:</strong></p>
-            <div class="banks-logos banks-logos-centered" style="margin: 5px 0;">
+            <p class="banks-title" style="margin-bottom: 5px;"><strong>С нами работают сотрудники и менеджеры ведущих банков:</strong></p>
+            <div class="banks-logos banks-logos-centered" style="margin: 10px 0;">
                 <img src="b1.png" alt="Партнер 1" class="bank-logo">
-                <img src="b2.png" alt="Партнер 1" class="bank-logo">
-                <img src="b3.png" alt="Партнер 1" class="bank-logo">
-                <img src="b4.png" alt="Партнер 1" class="bank-logo">
+                <img src="b2.png" alt="Партнер 2" class="bank-logo">
+                <img src="b3.png" alt="Партнер 3" class="bank-logo">
+                <img src="b4.png" alt="Партнер 4" class="bank-logo">
             </div>
-
-            <!-- Исходный стиль оформления текста -->
-            <ul class="info-list" style="margin-top: 15px; padding-left: 20px;">
-                <li>Юридический отдел подготавливает и составляет договор с полным пакетом документов на квартиру и предоставляет банку.</li>
-                <li>Банк в течении двух дней комплектует документы для подписания кредитного договора.</li>
-                <li>Встречаемся в банке для подписания кредитного договора и внесения первоначального взноса.</li>
-            </ul>
             <p style="margin-top: 10px; padding: 0 15px; font-weight: 700; color: #000; text-align: center;">
-                Через 5 дней проходит регистрация квартиры на ваше имя. Выдаём ключи и вы можете заниматься ремонтом вашей новой квартиры 😊👍🔑
+                Которые проконсультируют и одобрят ипотеку на льготных условиях.
             </p>
-            <p style="margin-top: 10px; font-weight: 700; color: #000; text-align: center;">
-                Находимся на связи на каждом этапе оформления.
-            </p>
-
             <div class="arrow-container">
                 <div class="arrow-down"></div>
             </div>
         </div>
     </main>
 
-
     <div id="details" class="hidden-content">
-        <div class="ui-block">
-            <div class="title-block">
-                <h2>Наши партнеры</h2>
-                <p class="subtitle">Надёжность и доверие</p>
-            </div>
-            <p class="banks-title">С нами работают сотрудники и менеджеры ведущих банков:</p>
-            <div class="banks-logos banks-logos-centered">
-                <img src="b1.png" alt="Партнер 1" class="bank-logo">
-                <img src="b2.png" alt="Партнер 2" class="bank-logo">
-                <img src="b3.png" alt="Партнер 3" class="bank-logo">
-                <img src="b4.png" alt="Партнер 4" class="bank-logo">
-            </div>
-            <div class="banks-footer">
-                <p>Которые проконсультируют и одобрят ипотеку на льготных условиях.</p>
-            </div>
-        </div>
-
+        <!-- ВТОРОЙ БЛОК: Оформление (объединенный с Ипотекой) -->
         <div class="ui-block">
             <div class="title-block">
                 <h2>Оформление</h2>
-                <p class="subtitle">Легко и Безопасно</p>
+                <p class="subtitle">Просто и легко</p>
             </div>
-            <ul class="info-list">
+            <ul class="info-list" style="margin-top: 15px; padding-left: 20px;">
+                <li>Юридический отдел подготавливает и составляет договор с полным пакетом документов на квартиру и предоставляет банку.</li>
+                <li>Банк в течении двух дней комплектует документы для подписания кредитного договора.</li>
+                <li>Встречаемся в банке для подписания кредитного договора и внесения первоначального взноса.</li>
                 <li>Регистрация договора по <strong>214 Ф.З.</strong></li>
                 <li>Оплата квартиры производится через <strong>Сбер Банк</strong> после регистрации на ваше имя в РосРеестре.</li>
                 <li>Денежные средства на счету <strong>«Эскроу»</strong> до выдачи ключей.</li>
             </ul>
+            <p style="margin-top: 15px; padding: 0 15px; font-weight: 700; color: #000; text-align: center;">
+                Через 5 дней проходит регистрация квартиры на ваше имя. Выдаём ключи и вы можете заниматься ремонтом вашей новой квартиры 😊👍🔑
+            </p>
+            <p style="margin-top: 10px; font-weight: 700; color: #000; text-align: center;">
+                Находимся на связи на каждом этапе оформления.
+            </p>
         </div>
 
+        <!-- ТРЕТИЙ БЛОК: Наличная форма оплаты -->
         <div class="ui-block">
             <div class="title-block">
                 <h2>Наличная форма оплаты</h2>
@@ -119,7 +101,8 @@
             </p>
         </div>
 
-                        <div class="ui-block">
+        <!-- ЧЕТВЕРТЫЙ БЛОК: Рассрочка -->
+        <div class="ui-block">
             <div class="title-block">
                 <h2>Рассрочка</h2>
             </div>
@@ -136,8 +119,6 @@
                 Находимся на связи на каждом этапе оформления.
             </p>
         </div>
-
-
     </div>
 
     <div class="action-buttons">
