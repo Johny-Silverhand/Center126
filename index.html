@@ -10,17 +10,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         .hidden-content { display: none; }
-        .ui-block-main { cursor: pointer; }
+        .ui-block-clickable { cursor: pointer; transition: opacity 0.3s; }
+        .ui-block-clickable:active { opacity: 0.8; }
+        
         .banks-footer p, .info-list li, .banks-title { color: #000000 !important; font-weight: 700 !important; }
         .banks-title { text-align: center; }
-        .arrow-container { display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 5px; height: 15px; }
-        .arrow-down { width: 10px; height: 10px; border-right: 3px solid #2e7d32; border-bottom: 3px solid #2e7d32; transform: rotate(45deg); animation: bounce 1.6s infinite; }
-        @keyframes bounce { 0%, 100% { transform: translateY(0) rotate(45deg); opacity: 0.5; } 50% { transform: translateY(5px) rotate(45deg); opacity: 1; } }
+        
         .bank-logo { height: 24px !important; width: auto !important; max-width: 60px !important; object-fit: contain !important; display: inline-block !important; vertical-align: middle !important; }
         .banks-logos-centered { display: flex !important; justify-content: center !important; align-items: center !important; gap: 15px !important; width: 100% !important; }
         .btn-max { background-color: #5B35C5 !important; color: #ffffff !important; }
         .btn-icon-msg { display: inline-block; width: 16px; height: 16px; margin-right: 8px; border: 2px solid #ffffff; border-radius: 4px; position: relative; vertical-align: middle; }
         .btn-icon-msg::after { content: ''; position: absolute; bottom: -5px; left: 3px; border-width: 5px 5px 0 0; border-style: solid; border-color: #ffffff transparent; }
+        
+        /* Новые стили для стрелки и подсказки */
+        .arrow-container { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; margin-top: 20px; }
+        .toggle-text { font-size: 13px; color: #2e7d32; font-weight: 800; margin-bottom: 5px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; }
+        .arrow-wrapper { animation: bounce 1.6s infinite; display: flex; justify-content: center; align-items: center; height: 20px; }
+        .arrow { width: 12px; height: 12px; border-right: 3px solid #2e7d32; border-bottom: 3px solid #2e7d32; transform: rotate(45deg); transition: transform 0.3s ease; }
+        .arrow.up { transform: rotate(-135deg); }
+        
+        @keyframes bounce { 0%, 100% { transform: translateY(0); opacity: 0.6; } 50% { transform: translateY(5px); opacity: 1; } }
         
         /* Стили модального окна */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; padding: 20px; box-sizing: border-box; }
@@ -38,9 +47,7 @@
 <div class="main-container notranslate" translate="no">
     <header class="main-header"></header>
 
-    <!-- ПЕРВЫЙ БЛОК -->
-    <main class="ui-block ui-block-main" style="padding-top: 20px; padding-bottom: 10px;" 
-        onclick="const details = document.getElementById('details'); details.classList.toggle('hidden-content'); if(!details.classList.contains('hidden-content')) { setTimeout(() => details.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); }">
+    <main class="ui-block" style="padding-top: 20px; padding-bottom: 20px;">
         <div class="title-block" style="margin-bottom: 10px; padding-bottom: 6px;">
             <h2>Семейная ипотека 6%</h2>
             <p class="subtitle">Наши партнеры</p>
@@ -56,36 +63,38 @@
             <p style="margin-top: 10px; padding: 0 15px; font-weight: 700; color: #000; text-align: center;">
                 Которые проконсультируют и одобрят ипотеку на льготных условиях.
             </p>
-            <div class="arrow-container">
-                <div class="arrow-down"></div>
-            </div>
         </div>
     </main>
 
-    <div id="details" class="hidden-content">
-        <!-- ВТОРОЙ БЛОК: Оформление (объединенный с Ипотекой) -->
-        <div class="ui-block">
-            <div class="title-block">
-                <h2>Оформление</h2>
-                <p class="subtitle">Просто и легко</p>
-            </div>
-            <ul class="info-list" style="margin-top: 15px; padding-left: 20px;">
-                <li>Юридический отдел подготавливает и составляет договор с полным пакетом документов на квартиру и предоставляет банку.</li>
-                <li>Банк в течении двух дней комплектует документы для подписания кредитного договора.</li>
-                <li>Встречаемся в банке для подписания кредитного договора и внесения первоначального взноса.</li>
-                <li>Регистрация договора по <strong>214 Ф.З.</strong></li>
-                <li>Оплата квартиры производится через <strong>Сбер Банк</strong> после регистрации на ваше имя в РосРеестре.</li>
-                <li>Денежные средства на счету <strong>«Эскроу»</strong> до выдачи ключей.</li>
-            </ul>
-            <p style="margin-top: 15px; padding: 0 15px; font-weight: 700; color: #000; text-align: center;">
-                Через 5 дней проходит регистрация квартиры на ваше имя. Выдаём ключи и вы можете заниматься ремонтом вашей новой квартиры 😊👍🔑
-            </p>
-            <p style="margin-top: 10px; font-weight: 700; color: #000; text-align: center;">
-                Находимся на связи на каждом этапе оформления.
-            </p>
+    <div class="ui-block ui-block-clickable" onclick="toggleDetailsBlock()">
+        <div class="title-block">
+            <h2>Оформление</h2>
+            <p class="subtitle">Просто и легко</p>
         </div>
+        <ul class="info-list" style="margin-top: 15px; padding-left: 20px;">
+            <li>Юридический отдел подготавливает и составляет договор с полным пакетом документов на квартиру и предоставляет банку.</li>
+            <li>Банк в течении двух дней комплектует документы для подписания кредитного договора.</li>
+            <li>Встречаемся в банке для подписания кредитного договора и внесения первоначального взноса.</li>
+            <li>Регистрация договора по <strong>214 Ф.З.</strong></li>
+            <li>Оплата квартиры производится через <strong>Сбер Банк</strong> после регистрации на ваше имя в РосРеестре.</li>
+            <li>Денежные средства на счету <strong>«Эскроу»</strong> до выдачи ключей.</li>
+        </ul>
+        <p style="margin-top: 15px; padding: 0 15px; font-weight: 700; color: #000; text-align: center;">
+            Через 5 дней проходит регистрация квартиры на ваше имя. Выдаём ключи и вы можете заниматься ремонтом вашей новой квартиры 😊👍🔑
+        </p>
+        <p style="margin-top: 10px; font-weight: 700; color: #000; text-align: center;">
+            Находимся на связи на каждом этапе оформления.
+        </p>
+        
+        <div class="arrow-container">
+            <div id="toggle-text" class="toggle-text">Нажмите, чтобы развернуть</div>
+            <div class="arrow-wrapper">
+                <div id="toggle-arrow" class="arrow"></div>
+            </div>
+        </div>
+    </div>
 
-        <!-- ТРЕТИЙ БЛОК: Наличная форма оплаты -->
+    <div id="details" class="hidden-content">
         <div class="ui-block">
             <div class="title-block">
                 <h2>Наличная форма оплаты</h2>
@@ -101,7 +110,6 @@
             </p>
         </div>
 
-        <!-- ЧЕТВЕРТЫЙ БЛОК: Рассрочка -->
         <div class="ui-block">
             <div class="title-block">
                 <h2>Рассрочка</h2>
@@ -152,6 +160,27 @@
 </div>
 
 <script>
+    // Функция для открытия/закрытия дополнительных блоков и анимации стрелки
+    function toggleDetailsBlock() {
+        const details = document.getElementById('details');
+        const arrow = document.getElementById('toggle-arrow');
+        const text = document.getElementById('toggle-text');
+        
+        details.classList.toggle('hidden-content');
+        
+        if (!details.classList.contains('hidden-content')) {
+            // Блоки развернуты
+            arrow.classList.add('up');
+            text.textContent = 'Свернуть';
+            setTimeout(() => details.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+        } else {
+            // Блоки скрыты
+            arrow.classList.remove('up');
+            text.textContent = 'Нажмите, чтобы развернуть';
+        }
+    }
+
+    // Функции модального окна
     function toggleModal(show, e) {
         if (e) e.preventDefault();
         const modal = document.getElementById('max-modal');
@@ -168,4 +197,3 @@
 
 </body>
 </html>
-
