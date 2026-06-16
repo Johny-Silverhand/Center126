@@ -22,7 +22,7 @@
         .btn-icon-msg { display: inline-block; width: 16px; height: 16px; margin-right: 8px; border: 2px solid #ffffff; border-radius: 4px; position: relative; vertical-align: middle; }
         .btn-icon-msg::after { content: ''; position: absolute; bottom: -5px; left: 3px; border-width: 5px 5px 0 0; border-style: solid; border-color: #ffffff transparent; }
         
-        /* Новые стили для стрелки и подсказки */
+        /* Стили для стрелки и подсказки */
         .arrow-container { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; margin-top: 20px; }
         .toggle-text { font-size: 13px; color: #2e7d32; font-weight: 800; margin-bottom: 5px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; }
         .arrow-wrapper { animation: bounce 1.6s infinite; display: flex; justify-content: center; align-items: center; height: 20px; }
@@ -47,7 +47,7 @@
 <div class="main-container notranslate" translate="no">
     <header class="main-header"></header>
 
-    <main class="ui-block ui-block-clickable" onclick="toggleDetailsBlock()" style="padding-top: 20px; padding-bottom: 20px;">
+    <main class="ui-block" style="padding-top: 20px; padding-bottom: 20px;">
         <div class="title-block" style="margin-bottom: 10px; padding-bottom: 6px;">
             <h2>Семейная ипотека 6%</h2>
             <p class="subtitle">Наши партнеры</p>
@@ -64,6 +64,13 @@
                 Которые проконсультируют и одобрят ипотеку на льготных условиях.
             </p>
         </div>
+    </main>
+
+    <div class="ui-block ui-block-clickable" onclick="toggleDetailsBlock()">
+        <div class="title-block" style="margin-bottom: 0;">
+            <h2>Оформление по 214-ФЗ</h2>
+            <p class="subtitle">Просто и легко</p>
+        </div>
         
         <div class="arrow-container">
             <div id="toggle-text" class="toggle-text">Нажмите, чтобы развернуть</div>
@@ -71,14 +78,10 @@
                 <div id="toggle-arrow" class="arrow"></div>
             </div>
         </div>
-    </main>
+    </div>
 
     <div id="details" class="hidden-content">
         <div class="ui-block">
-            <div class="title-block">
-                <h2>Оформление</h2>
-                <p class="subtitle">Просто и легко</p>
-            </div>
             <ul class="info-list" style="margin-top: 15px; padding-left: 20px;">
                 <li>Юридический отдел подготавливает и составляет договор с полным пакетом документов на квартиру и предоставляет банку.</li>
                 <li>Банк в течении двух дней комплектует документы для подписания кредитного договора.</li>
